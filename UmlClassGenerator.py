@@ -18,8 +18,10 @@ def generate_class_diagram(input_dir, output_dir, project_name):
     os.chdir(output_dir)
     try:
         subprocess.run(
-            ["pyreverse", "-o", "png", "-p", project_name, input_dir], check=True
-        )
+    ["pyreverse", "-o", "png", "-p", project_name, "--filter-mode=ALL", input_dir],
+    check=True,
+)
+
         diagram_path = os.path.join(output_dir, f"classes_{project_name}.png")
         if os.path.exists(diagram_path):
             messagebox.showinfo("Success", f"Class diagram generated: {diagram_path}")

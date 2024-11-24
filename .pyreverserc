@@ -1,0 +1,7 @@
+[pyreverse]
+# Include all relationships in the diagram
+filter-mode=ALL
+
+# Additional configurations (optional)
+output-format=png
+project-name=ProjectName
