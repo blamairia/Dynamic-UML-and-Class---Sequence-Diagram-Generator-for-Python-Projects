@@ -1,0 +1,24 @@
+@startuml
+participant "student" as Object1
+participant "professor" as Object2
+participant "course" as Object3
+Main -> Object1: <module>()
+Object1 -> Object1: Student()
+Object1 -> Object2: <module>()
+Object2 -> Object2: Professor()
+Object2 -> Object3: <module>()
+Object3 -> Object3: Course()
+Object3 -> Object2: __init__()
+Object2 -> Object3: __init__()
+Object3 -> Object2: assign_to_course()
+Object2 -> Object1: __init__()
+Object1 -> Object1: __init__()
+Object1 -> Object1: enroll()
+Object1 -> Object3: add_student()
+Object3 -> Object1: enroll()
+Object1 -> Object3: add_student()
+Object3 -> Object3: list_students()
+Object3 -> Object3: <listcomp>()
+Object3 -> Object1: list_courses()
+Object1 -> Object1: <listcomp>()
+@enduml

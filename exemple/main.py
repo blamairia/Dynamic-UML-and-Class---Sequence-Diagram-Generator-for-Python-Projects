@@ -24,15 +24,16 @@ def main():
     print(f"Students in {course.name}: {', '.join(course.list_students())}")
     print(f"{student1.name} is enrolled in: {', '.join(student1.list_courses())}")
 
+
 if __name__ == "__main__":
     # Create a trace object
     tracer = trace.Trace(
         trace=True,
-        count=False,
-        outfile="trace_log.txt"  # File to save the logs
+        count=False,  # Disable coverage counting
+        outfile=None  # Keep logs in memory
     )
 
-    # Redirect standard output to a file AND run the trace
+    # Redirect standard output to capture logs in a readable format
     with open("trace_log.txt", "w") as f:
         sys.stdout = f  # Redirect stdout to the file
         tracer.run('main()')  # Run the main function under the tracer
