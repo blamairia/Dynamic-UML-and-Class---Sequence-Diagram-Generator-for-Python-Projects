@@ -2,11 +2,14 @@ class Person:
     """
     Base class representing a person.
     """
-    def __init__(self, name, age):
+    name: str  # Class-level attributes
+    age: int
+
+    def __init__(self, name: str, age: int):
         self.name = name
         self.age = age
 
-    def introduce(self):
+    def introduce(self) -> str:
         """
         Introduce the person.
         """

@@ -1,19 +1,23 @@
-from models.student import Student
-from models.professor import Professor
+from __future__ import annotations  # Enables forward references
 
 class Course:
     """
-    Represents a course that students can enroll in.
+    Represents a course that students can enroll in and is taught by a professor.
     """
-    def __init__(self, name, professor: Professor):
+    professor: Professor  # Forward reference
+    students: list[Student]  # Forward reference
+
+    def __init__(self, name: str, professor: Professor):
+        from models.professor import Professor  # Local import to avoid circular dependency
         self.name = name
-        self.professor = professor  # Association with Professor
-        self.students: list[Student] = []  # Aggregation: List of students
+        self.professor = professor
+        self.students = []
 
     def add_student(self, student: Student):
         """
         Add a student to the course.
         """
+        from models.student import Student  # Local import to avoid circular dependency
         self.students.append(student)
 
     def list_students(self):
